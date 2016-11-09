@@ -84,7 +84,8 @@ public class jugador {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
+    public jugador(){
+    }
     public jugador(String nombre, LocalDate fechaNacimiento, int kills, int deaths, int assists, String rol, equipo pertenencia) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;

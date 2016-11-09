@@ -9,7 +9,7 @@ import java.util.List;
  * Created by dam on 9/11/16.
  */
 public interface jugadorRepository {
-    List<jugador> findByNameContaining (String nombre);
+    List<jugador> findByNombreContaining (String nombre);
     List<jugador> findByKillsGreaterThanEqual (Integer kills);
     List<jugador> findByAssistsBetween (Integer max, Integer min);
     List<jugador> findByRol (String rol);
