@@ -15,5 +15,8 @@ public class jugadorService {
 
     public void testJugador(){
         jugador jugador1 = new jugador();
+        jugador1.setNombre("Xpeke");
+
+        jugadorRepository.save(jugador1);
     }
 }
