@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * Created by dam on 9/11/16.
  */
 @Entity
-public class jugador {
+public class Jugador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -19,7 +19,7 @@ public class jugador {
     private int assists;
     private String rol;
     @ManyToMany
-    private equipo pertenencia;
+    private Equipo pertenencia;
 
     public long getId() {
         return id;
@@ -29,11 +29,11 @@ public class jugador {
         this.id = id;
     }
 
-    public equipo getPertenencia() {
+    public Equipo getPertenencia() {
         return pertenencia;
     }
 
-    public void setPertenencia(equipo pertenencia) {
+    public void setPertenencia(Equipo pertenencia) {
         this.pertenencia = pertenencia;
     }
 
@@ -84,9 +84,9 @@ public class jugador {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    public jugador(){
+    public Jugador(){
     }
-    public jugador(String nombre, LocalDate fechaNacimiento, int kills, int deaths, int assists, String rol, equipo pertenencia) {
+    public Jugador(String nombre, LocalDate fechaNacimiento, int kills, int deaths, int assists, String rol, Equipo pertenencia) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.kills = kills;
@@ -101,7 +101,7 @@ public class jugador {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        jugador jugador = (jugador) o;
+        Jugador jugador = (Jugador) o;
 
         if (id != jugador.id) return false;
         if (kills != jugador.kills) return false;
@@ -129,7 +129,7 @@ public class jugador {
 
     @Override
     public String toString() {
-        return "jugador{" +
+        return "Jugador{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +

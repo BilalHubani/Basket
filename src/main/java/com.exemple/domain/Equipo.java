@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * Created by dam on 9/11/16.
  */
 @Entity
-public class equipo {
+public class Equipo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -52,7 +52,7 @@ public class equipo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        equipo equipo = (equipo) o;
+        Equipo equipo = (Equipo) o;
 
         if (id != equipo.id) return false;
         if (!nombre.equals(equipo.nombre)) return false;
@@ -72,7 +72,7 @@ public class equipo {
 
     @Override
     public String toString() {
-        return "equipo{" +
+        return "Equipo{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", localidad='" + localidad + '\'' +
