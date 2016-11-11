@@ -3,9 +3,6 @@ package com.exemple.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-/**
- * Created by dam on 9/11/16.
- */
 @Entity
 public class Jugador {
     @Id

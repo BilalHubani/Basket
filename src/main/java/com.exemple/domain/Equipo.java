@@ -3,9 +3,6 @@ package com.exemple.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-/**
- * Created by dam on 9/11/16.
- */
 @Entity
 public class Equipo {
     @Id
@@ -14,6 +11,15 @@ public class Equipo {
     private String nombre;
     private String localidad;
     private LocalDate fechaCreacion;
+
+    public Equipo() {
+    }
+
+    public Equipo(String nombre, String localidad, LocalDate fechaCreacion) {
+        this.nombre = nombre;
+        this.localidad = localidad;
+        this.fechaCreacion = fechaCreacion;
+    }
 
     public long getId() {
         return id;

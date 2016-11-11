@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
-/**
- * Created by dam on 9/11/16.
- */
 @Service
 public class EquipoService {
     @Autowired

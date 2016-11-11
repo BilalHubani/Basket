@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
-/**
- * Created by dam on 9/11/16.
- */
 @Service
 public class JugadorService {
     @Autowired
@@ -62,6 +59,21 @@ public class JugadorService {
         jugadorRepository.save(jugador19);
         Jugador jugador20 = new Jugador("Madlife", LocalDate.of(1989,5,8), 5, 0, 30, "support", equipoRepository.findOne(4L));
         jugadorRepository.save(jugador20);
+
+        System.out.println("Buscar jugadores que tengan 'k' en el nombre: "+jugadorRepository.findByNombreContaining("k"));
+        System.out.println("Buscar jugadores que tengan 15 o mas kills: "+jugadorRepository.findByKillsGreaterThanEqual(15));
+        System.out.println("Buscar jugadores que tengas entre 10 y 20 asistencias: "+jugadorRepository.findByAssistsBetween(20,10));
+        System.out.println("Buscar jugadores que su rol sea 'mid': "+jugadorRepository.findByRol("mid"));
+        System.out.println("Buscar jugadores que hayan nacido antes del 1 del 1 de 1991: "+jugadorRepository.findByFechaNacimientoBefore(LocalDate.of(1991,1,1)));
+        System.out.println("Agrupar jugadores por rol y devolver la media: "+jugadorRepository.AVGKillsANDDeathsANDAssists());
+        System.out.println("Agrupar jugadores por rol y devolver la media, max y min: "+jugadorRepository.AVGANDMaxANDMinTOKillsANDDeathsANDAssists());
+        System.out.println("");
+        System.out.println("Los equipos de New York son: "+equipoRepository.findByLocalidad("New York"));
+        System.out.println("Los miembros del equipo 'Origen' son: "+ jugadorRepository.findByPertenenciaNombreIs("Origen"));
+        System.out.println("Los miembros del equipo 'Team Solo Mid' de rol 'mid': "+jugadorRepository.findByPertenenciaNombreIsAndRolIs("Team Solo Mid", "mid"));
+        System.out.println("El jugador con mas kills del equipo 'Leyendas' es: "+jugadorRepository.nombreJugador("Leyendas"));
+
+
 
     }
 }
