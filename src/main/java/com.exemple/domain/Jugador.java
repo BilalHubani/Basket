@@ -15,7 +15,7 @@ public class Jugador {
     private int deaths;
     private int assists;
     private String rol;
-    @ManyToMany
+    @ManyToOne
     private Equipo pertenencia;
 
     public long getId() {

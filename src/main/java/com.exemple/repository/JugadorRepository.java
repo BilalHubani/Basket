@@ -1,6 +1,7 @@
 package com.exemple.repository;
 
 import com.exemple.domain.Jugador;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -8,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface JugadorRepository extends JpaRepository{
+public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     List<Jugador> findByNombreContaining (String nombre);
     List<Jugador> findByKillsGreaterThanEqual (Integer kills);
     List<Jugador> findByAssistsBetween (Integer max, Integer min);
@@ -22,6 +23,7 @@ public interface JugadorRepository extends JpaRepository{
     List<Jugador>findByPertenenciaNombreIs(String nombre);
     List<Jugador>findByPertenenciaNombreIsAndRolIs(String nombre, String rol);
 
-    @Query("SELECT jugador.nombre, MAX(jugador.kills) FROM Jugador jugador WHERE jugador.pertenencia.nombre = :nombre")
-    List<Object[]>nombreJugador(@Param("nombre")String nombre);
+
+    @Query("SELECT jugador FROM Jugador jugador WHERE jugador.pertenencia.nombre = :nombre ORDER BY jugador.kills desc")
+    List<Jugador>nombreJugador(@Param("nombre") String nombre, Pageable pageable);
 }
